@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if cookies[:user_id]
-      User.find(cookies.signed[:user_id])
+      User.find(cookies.encrypted.signed[:user_id])
     end
   end
 end
